@@ -26,9 +26,13 @@ If PROCESSOR is coded as D4F3C5C1E1S1S1E3C6, what is the code for QUADRANT?
 */
 
 object Main extends App {
-  val (inA, inB) = ("Minneapolis", "Minnesota")
   
-  println(longestCommonSubstring(inA, inB).length())
+  //println("Enter the first string\n")
+  val inA = scala.io.StdIn.readLine("Enter the first string\n")
+  //println("Enter the second string\n")
+  val inB = scala.io.StdIn.readLine("Enter the second string\n")
+
+  println(s"The length of the longest common substring is ${longestCommonSubstring(inA, inB).length()}")
   
   def getAllSubstrings(str: String): Set[String] = {
     str.inits.flatMap(_.tails).toSet
