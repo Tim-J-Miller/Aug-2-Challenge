@@ -26,13 +26,21 @@ If PROCESSOR is coded as D4F3C5C1E1S1S1E3C6, what is the code for QUADRANT?
 */
 
 object Main extends App {
+  println("Enter the problem number to run\n")
+  val choice = scala.io.StdIn.readInt()
   
-  //println("Enter the first string\n")
-  val inA = scala.io.StdIn.readLine("Enter the first string\n")
-  //println("Enter the second string\n")
-  val inB = scala.io.StdIn.readLine("Enter the second string\n")
-
-  println(s"The length of the longest common substring is ${longestCommonSubstring(inA, inB).length()}")
+  choice match {
+    case 1 =>{
+      val inA = scala.io.StdIn.readLine("Enter the first string\n")
+      val inB = scala.io.StdIn.readLine("Enter the second string\n")
+      println(s"The length of the longest common substring is ${longestCommonSubstring(inA, inB).length()}")
+    }
+    case 2 => {
+      val in = scala.io.StdIn.readLine("Enter the numerical array, deliminated by spaces\n").split(" ")
+      println(s"The maximum element is ${in.max},\nThe minimum element is ${in.min}")
+    }
+    case _ => println("invalid choice")
+  }
   
   def getAllSubstrings(str: String): Set[String] = {
     str.inits.flatMap(_.tails).toSet
