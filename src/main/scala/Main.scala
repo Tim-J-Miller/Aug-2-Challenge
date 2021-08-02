@@ -23,29 +23,20 @@ Logical Reasoning:
 3) This question is based on a certain code language. Understand the logic in the coding and answer the following question.
 
 If PROCESSOR is coded as D4F3C5C1E1S1S1E3C6, what is the code for QUADRANT?
-
-p - d4 - 4*4 - 16
-r - f3 - 6*3 - 18
-o - c5 - 3*5 - 15
-c - c1 - 3*1 - 3
-e - e1 - 5*1 - 5
-s - s1 - 19*1 - 19
-s - s1 - 19*1 - 19
-o - e3 - 5*3 - 15
-r - c6 - 3*6 - 18
-
-q - 17 - 17*1 - q1
-u - 21 - 7*3 - c7
-a - 1 - 1*1 - a1
-d - 4 - 2*2 - b2
-r - 18 - 6*3 - f3
-a - 1 - 1*1 - a1
-n - 14 - 7*2 - c2
-t - 20 - 5*4 - e4
-
-Q1C7A1B2F3A1C2E4
 */
 
 object Main extends App {
-  println("Hello, World!")
+  val (inA, inB) = ("Minneapolis", "Minnesota")
+  
+  println(longestCommonSubstring(inA, inB).length())
+  
+  def getAllSubstrings(str: String): Set[String] = {
+    str.inits.flatMap(_.tails).toSet
+  }
+  def longestCommonSubstring(str1: String, str2: String): String = {
+    val str1Substrings = getAllSubstrings(str1)
+    val str2Substrings = getAllSubstrings(str2)
+
+    str1Substrings.intersect(str2Substrings).maxBy(_.length)
+  }
 }
